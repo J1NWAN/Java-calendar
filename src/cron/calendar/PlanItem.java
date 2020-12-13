@@ -1,4 +1,5 @@
 package cron.calendar;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -29,5 +30,12 @@ public class PlanItem {
 	
 	public void addPeople(String name) {
 		peoples += name + ",";
+	}
+
+	public String saveString() {
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		String sdate = formatter.format(planDate);
+		return sdate.toString() + "," + "\"" + detail + "\""  + "\n";
+		
 	}
 }
